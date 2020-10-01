@@ -34,7 +34,7 @@ Orba One uses a **publishable api key** that you can obtain from your vendor das
 ```java
 import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
 
-OrbaOne oneSdk = new OrbaOne.Builder().setApiKey("publishable-api-key").create();
+OrbaOne oneSdk = new OrbaOne.Builder().setApiKey("publishable-api-key").setApplicantId("applicant-id").create();
 oneSdk.startVerification(this);
 ```
 
@@ -58,7 +58,7 @@ oneSdk.onStartVerification(new OrbaOne.Response() {
 oneSdk.onCompleteVerification(new OrbaOne.Callback() {
   @Override
   public void execute(String key) {
-    // Flow completed successfully. The user's applicant id is also returned as a parameter.
+    // Flow completed successfully. The applicant id is also returned as a parameter.
   }
 });
 
@@ -77,17 +77,14 @@ To customize the verification flow, you can simply make use of the sdk's builder
 import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
 import com.orbaone.orba_one_capture_sdk_core.helpers.Step;
 
-OrbaOne oneSdk = new OrbaOne.Builder().setApiKey("publishable-api-key");
-
 Step[] FlowStep = new Step[] {
-  Step.INTRO, // Welcome step - gives your user a short overview of the flow. Optional.
-  Step.ID, // Photo ID step - captures the user's identification document.
-  Step.FACESCAN, // Selfie Video step - captures a video of the user for liveness detection.
-  Step.COMPLETE // Final Step - alerts the user that all uploads are completed. Optional.
+  Step.INTRO, // Welcome step - gives your user a short overview of the flow. [Optional, Default].
+  Step.ID, // Photo ID step - captures the user's identification document. [Default].
+  Step.FACESCAN, // Selfie Video step - captures a video of the user for liveness detection. [Default].
+  Step.COMPLETE // Final Step - alerts the user that all uploads are completed. [Optional].
   };
-oneSdk.setFlow(FlowStep);
 
-oneSdk.create();
+OrbaOne oneSdk = new OrbaOne.Builder().setApiKey("publishable-api-key").setApplicantId("applicant-id").setFlow(FlowStep).create();
 oneSdk.startVerification(this);
 ```
 
