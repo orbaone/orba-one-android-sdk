@@ -21,7 +21,7 @@ Then add the following to your app build.gradle file.
 ```gradle
 dependencies {
     ...
-    implementation 'com.orbaone:orba-one-android-sdk:+'
+    implementation 'com.orbaone:orba-one-sdk:+'
 }
 ```
 
