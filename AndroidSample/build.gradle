@@ -17,7 +17,6 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/comorbaone-1004/'}
         flatDir {
             dirs 'libs/aars'
         }
