@@ -29,7 +29,7 @@ Now sync your build gradle to install the sdk.
 
 ## 2. Initializing the SDK
 
-Orba One uses a **publishable api key** that you can obtain from your vendor dashboard. Your publishable api key will be needed in order to initialize the SDK in your mobile app. An sample implementation is provided below.
+The Orba One SDK uses a **publishable api key** and an **applicant id** that you can obtain from your vendor dashboard. Your publishable api key will be needed in order to initialize the SDK in your mobile app. A sample implementation is shown below.
 
 ```java
 import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
@@ -101,6 +101,11 @@ To ensure that Orba One fits in to your app's existing user experience, you can 
 ```orbaColorButtonPrimaryText```: Defines the text color of Primary Buttons.\
 ```orbaColorButtonPrimaryPressed```: Defines the background of Primary Buttons when pressed.
 
-## License
+## Sample App
+A sample app demonstrating the Orba One SDK's implementation has been included. See the SampleApp directory for the Java / Android implementation.
 
-MIT
+## Support
+
+Please post all issues through [Github](https://github.com/orbaone/orba-one-android-sdk/issues). If your query involves sensitive information, you may contact us at dev@orba.io with the subject `ANDROID ISSUE: `.
+
+Copyright 2021 Orba One Technology Holdings Ltd. All rights reserved.
