@@ -4,14 +4,14 @@ Official Android Implementation of the Orba One SDK.
 
 ## 1. Install as a Gradle Plugin
 
-The SDK works on API 21+. To fetch with Gradle, make sure you add the Orba One bintray repository in your root project's build.gradle file:
+The SDK works on API 21+. To fetch with Gradle, make sure you add the Orba One maven repository in your root project's build.gradle file:
 
 ```gradle
 allprojects {
   repositories {
     ...
-    maven {
-      url  "https://orbaone.bintray.com/orba-one"
+    maven { 
+      url 'https://s01.oss.sonatype.org/content/repositories/comorbaone-1004/' 
     }
   }
 }
