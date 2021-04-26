@@ -7,13 +7,9 @@ Official Android Implementation of the Orba One SDK.
 The SDK works on API 21+. To fetch with Gradle, make sure you add the Orba One maven repository in your root project's build.gradle file:
 
 ```gradle
-allprojects {
-  repositories {
-    ...
-    maven { 
-      url 'https://s01.oss.sonatype.org/content/repositories/comorbaone-1004/' 
-    }
-  }
+repositories {
+  ...
+  mavenCentral()
 }
 ```
 
