@@ -13,7 +13,7 @@ repositories {
 }
 ```
 
-Then add the following to your app build.gradle file.
+Then add the following dependency to your app build.gradle file. You should replace the `+` with your desired version of the SDK.
 ```gradle
 dependencies {
     ...
@@ -25,7 +25,7 @@ Now sync your build gradle to install the sdk.
 
 ## 2. Initializing the SDK
 
-The Orba One SDK uses a **publishable api key** and an **applicant id** that you can obtain from your vendor dashboard. Your publishable api key will be needed in order to initialize the SDK in your mobile app. A sample implementation is shown below.
+The Orba One SDK uses a **publishable api key** and an **applicant id** that you can obtain from your vendor dashboard. Your Publishable Api key and Applicant Id will be needed in order to initialize the SDK in your mobile app. A sample implementation is shown below.
 
 ```java
 import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
@@ -67,7 +67,7 @@ oneSdk.onCancelVerification(new OrbaOne.Callback() {
 ```
 ## 4. Customizing the Flow
 
-To customize the verification flow, you can simply make use of the sdk's builder function. All customization must be done before starting the flow.
+To customize the verification flow, you can simply make use of the sdk's builder class. All customization must be done before starting the flow.
 
 ```java
 import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
@@ -77,14 +77,46 @@ Step[] FlowStep = new Step[] {
   Step.INTRO, // Welcome step - gives your user a short overview of the flow. [Optional, Default].
   Step.ID, // Photo ID step - captures the user's identification document. [Default].
   Step.FACESCAN, // Selfie Video step - captures a video of the user for liveness detection. [Default].
-  Step.COMPLETE // Final Step - alerts the user that all uploads are completed. [Optional].
+  Step.COMPLETE // Final Step - alerts the user that the verification process is completed. [Optional].
   };
 
-OrbaOne oneSdk = new OrbaOne.Builder().setApiKey("publishable-api-key").setApplicantId("applicant-id").setFlow(FlowStep).create();
+OrbaOne oneSdk = new OrbaOne.Builder()
+        .setApiKey("publishable-api-key")
+        .setApplicantId("applicant-id")
+        .setFlow(FlowStep)
+        .create();
 oneSdk.startVerification(this);
 ```
 
-## 5. Customizing the Theme
+## 5. Customizing the Document Capture Step
+To customize the document capture step, you can simply make use of the sdk's DocumentCaptureStep builder class. By using this builder class, you are able to exclude specified documents and countries from the capture flow. All customization must be done before starting the flow.
+
+``` Java
+import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
+import com.orbaone.orba_one_capture_sdk_core.documentCapture.CountryCode;
+import com.orbaone.orba_one_capture_sdk_core.documentCapture.DocumentCaptureStep;
+import com.orbaone.orba_one_capture_sdk_core.helpers.DocumentTypes;
+
+DocumentCaptureStep captureConfig = new DocumentCaptureStep.Builder()
+        .excludeDocument(new DocumentTypes[]{
+                DocumentTypes.PASSPORT, // this will remove the Passport option
+                DocumentTypes.DRIVERSLICENSE, // this will remove the Driver's License option
+                DocumentTypes.NATIONALID // this will remove the National ID option
+        })
+        .excludeCountry(new CountryCode[] {
+                CountryCode.JM, // this will remove Jamaica from the list of available countries
+                CountryCode.US // this will remove the United States from the list of available countries
+        })
+        .create();
+OrbaOne oneSdk = new OrbaOne.Builder()
+        .setApiKey("publishable-api-key")
+        .setApplicantId("applicant-id")
+        .setDocumentCapture(captureConfig)
+        .create();
+oneSdk.startVerification(this);
+```
+
+## 6. Customizing the Theme
 
 To ensure that Orba One fits in to your app's existing user experience, you can customize various colors by overiding the following in your ``colors.xml`` file.
 
@@ -95,7 +127,7 @@ To ensure that Orba One fits in to your app's existing user experience, you can 
 ```orbaColorTextSecondary```: Defines the text color of the Sub-title in the Toolbar.\
 ```orbaColorButtonPrimary```: Defines the background color of Primary Buttons and the text color of Secondary Buttons.\
 ```orbaColorButtonPrimaryText```: Defines the text color of Primary Buttons.\
-```orbaColorButtonPrimaryPressed```: Defines the background of Primary Buttons when pressed.
+```orbaColorButtonPrimaryPressed```: Defines the background color of Primary Buttons when pressed.
 
 ## Sample App
 A sample app demonstrating the Orba One SDK's implementation has been included. See the SampleApp directory for the Java / Android implementation.
