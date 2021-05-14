@@ -77,7 +77,7 @@ Step[] FlowStep = new Step[] {
   Step.INTRO, // Welcome step - gives your user a short overview of the flow. [Optional, Default].
   Step.ID, // Photo ID step - captures the user's identification document. [Default].
   Step.FACESCAN, // Selfie Video step - captures a video of the user for liveness detection. [Default].
-  Step.COMPLETE // Final Step - alerts the user that the verification process is completed. [Optional].
+  Step.COMPLETE // Final Step - informs the user that the verification process is completed. [Optional].
   };
 
 OrbaOne oneSdk = new OrbaOne.Builder()
