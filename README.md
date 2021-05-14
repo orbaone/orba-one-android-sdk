@@ -130,7 +130,7 @@ To ensure that Orba One fits in to your app's existing user experience, you can 
 ```orbaColorButtonPrimaryPressed```: Defines the background color of Primary Buttons when pressed.
 
 ## Sample App
-A sample app demonstrating the Orba One SDK's implementation has been included. See the SampleApp directory for the Java / Android implementation.
+A sample app demonstrating the Orba One SDK's implementation has been included. See the [AndroidSample directory](https://github.com/orbaone/orba-one-android-sdk/tree/master/AndroidSample) for the Android - Java implementation.
 
 ## Support
 
