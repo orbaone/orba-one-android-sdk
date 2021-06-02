@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     try {
       Step[] FlowStep = new Step[] {Step.INTRO, Step.ID, Step.FACESCAN, Step.COMPLETE};
       OrbaOne oneSdk =
-              new OrbaOne.Builder().setApiKey("PUBLISHABLE-API-KEY").setApplicantId("GUEST").setFlow(FlowStep).create();
+              new OrbaOne.Builder().setApiKey("PUBLISHABLE-API-KEY").setApplicantId("APPLICANT-ID").setFlow(FlowStep).create();
       oneSdk.startVerification(this);
       oneSdk.onStartVerification(new OrbaOne.Response() {
         @Override
