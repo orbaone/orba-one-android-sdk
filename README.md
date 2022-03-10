@@ -118,7 +118,7 @@ oneSdk.startVerification(this);
 
 ## 6. Customizing the Theme
 
-To ensure that Orba One fits in to your app's existing user experience, you can customize various colors by overiding the following in your ``colors.xml`` file.
+To ensure that Orba One fits in to your app's existing user experience, you can customize various colors by overriding the following in your ``colors.xml`` file.
 
 ```orbaColorPrimary```: Defines the background color of the Toolbar.\
 ```orbaColorPrimaryDark```: Defines the background color of the Statusbar.\
